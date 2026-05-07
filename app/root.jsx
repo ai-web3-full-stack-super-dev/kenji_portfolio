@@ -114,41 +114,42 @@ export default function App() {
   }, []);
 
   return (
-    <html lang="en">
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        {/* Theme color doesn't support oklch so I'm hard coding these hexes for now */}
-        <meta name="theme-color" content={theme === 'dark' ? '#111' : '#F2F2F2'} />
-        <meta
-          name="color-scheme"
-          content={theme === 'light' ? 'light dark' : 'dark light'}
-        />
-        <style dangerouslySetInnerHTML={{ __html: themeStyles }} />
-        <Meta />
-        <Links />
-        <link rel="canonical" href={canonicalUrl} />
-      </head>
-      <body data-theme={theme}>
-        <ThemeProvider theme={theme} toggleTheme={toggleTheme}>
-          <Progress />
-          <VisuallyHidden showOnFocus as="a" className={styles.skip} href="#main-content">
-            Skip to main content
-          </VisuallyHidden>
-          <Navbar />
-          <main
-            id="main-content"
-            className={styles.container}
-            tabIndex={-1}
-            data-loading={state === 'loading'}
-          >
-            <Outlet />
-          </main>
-        </ThemeProvider>
-        <ScrollRestoration />
-        <Scripts />
-      </body>
-    </html>
+    <div>Hello World</div>
+    // <html lang="en">
+    //   <head>
+    //     <meta charSet="utf-8" />
+    //     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    //     {/* Theme color doesn't support oklch so I'm hard coding these hexes for now */}
+    //     <meta name="theme-color" content={theme === 'dark' ? '#111' : '#F2F2F2'} />
+    //     <meta
+    //       name="color-scheme"
+    //       content={theme === 'light' ? 'light dark' : 'dark light'}
+    //     />
+    //     <style dangerouslySetInnerHTML={{ __html: themeStyles }} />
+    //     <Meta />
+    //     <Links />
+    //     <link rel="canonical" href={canonicalUrl} />
+    //   </head>
+    //   <body data-theme={theme}>
+    //     <ThemeProvider theme={theme} toggleTheme={toggleTheme}>
+    //       <Progress />
+    //       <VisuallyHidden showOnFocus as="a" className={styles.skip} href="#main-content">
+    //         Skip to main content
+    //       </VisuallyHidden>
+    //       <Navbar />
+    //       <main
+    //         id="main-content"
+    //         className={styles.container}
+    //         tabIndex={-1}
+    //         data-loading={state === 'loading'}
+    //       >
+    //         <Outlet />
+    //       </main>
+    //     </ThemeProvider>
+    //     <ScrollRestoration />
+    //     <Scripts />
+    //   </body>
+    // </html>
   );
 }
 
