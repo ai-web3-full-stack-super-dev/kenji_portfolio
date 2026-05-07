@@ -1,0 +1,37 @@
+import { forwardRef, useId } from 'react';
+import { classes } from '~/utils/style';
+import styles from './monogram.module.css';
+
+export const Monogram = forwardRef(({ highlight, className, ...props }, ref) => {
+  const id = useId();
+  const clipId = `${id}monogram-clip`;
+
+  return (
+    <svg
+      aria-hidden
+      className={classes(styles.monogram, className)}
+      width="64"
+      height="64"
+      viewBox="0 0 64 64"
+      ref={ref}
+      {...props}
+    >
+      <defs>
+        <clipPath id={clipId}>
+          <path
+            d="m48.1 53.6l14.3-21.4-16.1-23.9h-9.4l-13.1 8.8-13.1-8.8h-9.6l2 3.5v39.7l-2 4h12.2l-2-4v-34l5.9 4-2.4 1.6v8.9l9-6 12.5 8.8v16.7l-2.1 4h10.3v-36.7l9 13.2-5.4 8.3c0 0 0 13.3 0 13.3zm-17.7-32.1l5.9-4v8z"
+          />
+          <path
+            d="m24 30.2l-9.2 6.2v15.2l2 3.9h13.9l1.9-3.9v-15.2zm-0.1 8.1l2.1 1.5v9h-4.4v-8.9c0 0 2.3-1.6 2.3-1.6z"
+          />
+        </clipPath>
+      </defs>
+      <rect clipPath={`url(#${clipId})`} width="100%" height="100%" />
+      {highlight && (
+        <g clipPath={`url(#${clipId})`}>
+          <rect className={styles.highlight} width="100%" height="100%" />
+        </g>
+      )}
+    </svg>
+  );
+});
